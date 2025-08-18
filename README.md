@@ -60,6 +60,15 @@ fastapi-ml-app/
 
 4. **Start the server**
    ```bash
+   python simple_server.py
+   ```
+   
+   Alternative methods:
+   ```bash
+   # Using uvicorn directly
+   python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+   
+   # Using start_server.py
    python start_server.py
    ```
 
@@ -68,7 +77,7 @@ fastapi-ml-app/
 ### Single Prediction
 
 ```bash
-curl -X POST "http://localhost:8000/predict" \
+curl -X POST "http://127.0.0.1:8000/predict" \
      -H "Content-Type: application/json" \
      -d '{
        "sepal_length": 5.1,
@@ -81,7 +90,7 @@ curl -X POST "http://localhost:8000/predict" \
 ### Batch Prediction
 
 ```bash
-curl -X POST "http://localhost:8000/predict/batch" \
+curl -X POST "http://127.0.0.1:8000/predict/batch" \
      -H "Content-Type: application/json" \
      -d '{
        "features": [
@@ -115,7 +124,7 @@ pytest tests/
 
 ### API Documentation
 
-Visit `http://localhost:8000/docs` when the server is running to access the interactive API documentation.
+Visit `http://127.0.0.1:8000/docs` when the server is running to access the interactive API documentation.
 
 ## Dependencies
 
